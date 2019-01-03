@@ -28,7 +28,7 @@ class GiiAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap4\BootstrapAsset',
         'yii\bootstrap4\BootstrapPluginAsset',
-        'yii\gii\TypeAheadAsset',
+        'yii\gii\assets\TypeAheadAsset',
         'yii\gii\assets\GlyphIconsAsset',
     ];
 }
