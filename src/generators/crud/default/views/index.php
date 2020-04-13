@@ -75,5 +75,7 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
         },
     ]) ?>
 <?php endif; ?>
+
 <?= $generator->enablePjax ? "    <?php Pjax::end(); ?>\n" : '' ?>
+
 </div>
