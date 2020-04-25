@@ -355,7 +355,7 @@ class Generator extends \yii\gii\Generator
                 if (class_exists($queryClassRealName, true) && is_subclass_of($queryClassRealName, '\yii\db\BaseActiveRecord')) {
                     /** @var \yii\db\ActiveQuery $activeQuery */
                     $activeQuery = $queryClassRealName::find();
-                    $activeQueryClass = $activeQuery::class;
+                    $activeQueryClass = get_class($activeQuery);
                     if (strpos($activeQueryClass, $this->ns) === 0){
                         $activeQueryClass = StringHelper::basename($activeQueryClass);
                     }
