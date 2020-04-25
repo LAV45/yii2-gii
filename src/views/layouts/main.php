@@ -2,7 +2,7 @@
 
 use yii\widgets\Menu;
 use yii\helpers\Html;
-use yii\gii\assets\GiiAsset;
+use yii\gii\GiiAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
