@@ -308,23 +308,23 @@ class Generator extends \yii\gii\Generator
         if ($column->phpType === 'boolean') {
             return 'boolean';
         }
-
         if ($column->type === 'text') {
             return 'ntext';
         }
-
-        if (stripos($column->name, 'time') !== false && $column->phpType === 'integer') {
+        if ($column->phpType === 'integer' &&
+            (
+                stripos($column->name, 'time') !== false ||
+                stripos($column->name, '_at') !== false
+            )
+        ) {
             return 'datetime';
         }
-
         if (stripos($column->name, 'email') !== false) {
             return 'email';
         }
-
         if (preg_match('/(\b|[_-])url(\b|[_-])/i', $column->name)) {
             return 'url';
         }
-
         return 'text';
     }
 
@@ -451,7 +451,7 @@ class Generator extends \yii\gii\Generator
                     break;
                 default:
                     $likeKeyword = $this->getClassDbDriverName() === 'pgsql' ? 'ilike' : 'like';
-                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";                    
+                    $likeConditions[] = "->andFilterWhere(['{$likeKeyword}', '{$column}', \$this->{$column}])";
                     break;
             }
         }
